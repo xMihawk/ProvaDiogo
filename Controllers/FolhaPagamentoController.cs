@@ -83,7 +83,7 @@ public class FolhaPagamentoController : ControllerBase
         return CreatedAtAction(nameof(CadastrarFolhaPagamento), new { id = folhaPagamento.Id }, folhaPagamento);
     }
 
-    [HttpPost("listar")]
+    [HttpGet("listar")]
     public IActionResult ListarFolhasPagamento()
     {
         var folhasPagamento = _context.FolhasPagamento.ToList();
@@ -96,7 +96,7 @@ public class FolhaPagamentoController : ControllerBase
         return Ok(folhasPagamento);
     }
 
-    [HttpPost("buscar/{cpf}/{mes}/{ano}")]
+    [HttpGet("buscar/{cpf}/{mes}/{ano}")]
 public IActionResult BuscarFolhaPagamento(string cpf, int mes, int ano)
 {
     var funcionario = _context.Funcionarios.FirstOrDefault(f => f.CPF == cpf);
